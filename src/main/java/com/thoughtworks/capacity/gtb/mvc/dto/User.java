@@ -1,9 +1,6 @@
 package com.thoughtworks.capacity.gtb.mvc.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.UniqueElements;
 
@@ -18,13 +15,16 @@ import javax.validation.constraints.Pattern;
 @Builder
 public class User {
 
+
+    int id;
+
     @NotBlank
-    @Length(min = 3,max = 10)
-    @Pattern(regexp ="^[a-zA-Z0-9_]+$")
+    @Length(min = 3, max = 10)
+    @Pattern(regexp = "^[a-zA-Z0-9_]+$")
     private String username;
 
     @NotBlank
-    @Length(min = 5,max = 12)
+    @Length(min = 5, max = 12)
     private String password;
 
     @Email

@@ -41,7 +41,7 @@ class UserControllerTest {
     @Test
     public void register_repeat_user() throws Exception {
 
-        User user = User.builder().username("Tom_5").password("12345").email("tom@qq.com").build();
+        User user = User.builder().username("Tom_55").password("12345").email("tom@qq.com").build();
         ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(user);
         mockMvc.perform(post("/register")
@@ -55,7 +55,7 @@ class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json));
             }
-        },"user is exist");
+        }, "user is exist");
 
     }
 
@@ -137,6 +137,7 @@ class UserControllerTest {
                 .andExpect(status().isBadRequest());
 
     }
+
     @Test
     public void register_right_name_and_blank_password() throws Exception {
 
